@@ -56,7 +56,7 @@ AND c.dominio = 'PUBLICO'
 AND c.fechaemision = (SELECT MIN(c.fechaemision)
 FROM contenido c
 WHERE c.codcategoria = '2'
-AND c.dominio = 'PUBLICO')
+AND c.dominio = 'PUBLICO');
 /*------------------------------------------------------------------------------
  EJ4: Mostrar los nicknames de los usuarios que hayan recibido más de una 
  donación cuyo estado sea pendiente y que a su vez hayan donado a más de un 
@@ -75,16 +75,20 @@ HAVING count(emaildestino) > 1);
  EJ5: Obtener el email y nickname de los usuarios mayores de 18 años que hayan 
  emitido contenido de todas las categorías. Considerar únicamente aquellos 
  contenidos cuyo dominio sea público.
--- TODO ---------------------------------------
 ------------------------------------------------------------------------------*/
 SELECT u.email, u.nickname
 FROM usuario u
 WHERE TRUNC(sysdate - fechanac) > '6570' --18*365=6570
-AND 
-
-SELECT c.emailusuario as Email,
-       COUNT(CASE WHEN c.dominio = 'PRIVADO' THEN 1 END) as ContPrivado,
-       COUNT(CASE WHEN c.dominio = 'PUBLICO' THEN 1 END) as ContPublico
+AND u.email IN (
+SELECT emailusuario
+FROM contenido
+WHERE dominio = 'PUBLICO'
+GROUP BY emailusuario
+HAVING count(distinct codcategoria) = 
+    -- Cuento el total de las categorias
+    (SELECT  sum(count(distinct codcategoria))
+    FROM contenido c1
+    GROUP BY codcategoria));
 /*------------------------------------------------------------------------------
  EJ6: Proveer una consulta que muestre los siguientes datos de las donaciones: 
  EmailOrigen,EmailDestino, Fecha y EstadoDonación. Para las donaciones 
@@ -151,5 +155,50 @@ WHERE v.emailusuario IN (SELECT emailusuario
  Además, obtener el nombre de la categoría que obtuvo la mayor cantidad de 
  visualizaciones para cada dominio de contenido
 ------------------------------------------------------------------------------*/
-
-
+SELECT c.dominio as Dominio, u.nombre as NombreUsuario, 
+        count(*) as CantidadEmisiones,
+        -- PrcEmisiones | Hacer el campo calculado
+        -- totalDelUsuario / totalDelasVisualizacionesPorDominio *100
+        CASE
+            WHEN c.dominio = 'PUBLICO' THEN
+            ROUND(
+                count(*)/(SELECT count(*) from contenido WHERE dominio = 'PUBLICO') *100)
+            WHEN c.dominio = 'PRIVADO' THEN 
+            ROUND(
+                count(*)/(SELECT count(*) from contenido WHERE dominio = 'PRIVADO') *100)
+        END as PrcEmisiones,
+        /* Categorias Publica | Privada
+           Pueden haber categorias empatadas en ese caso traemos la primera
+           Asumimos que ese es el comportamiento correcto */
+        CASE
+            WHEN c.dominio = 'PUBLICO' THEN
+            ---- Publica ----
+            (SELECT cat.nombrecategoria
+             FROM contenido c, categoria cat
+             WHERE c.dominio = 'PUBLICO'
+                AND c.codcategoria = cat.codcategoria
+             GROUP BY c.codcategoria, cat.nombrecategoria
+             HAVING COUNT(*) = 
+                (SELECT MAX(count(*))
+                 FROM contenido c
+                 WHERE c.dominio = 'PUBLICO'
+                 GROUP BY c.codcategoria)
+                 FETCH FIRST 1 ROWS ONLY)
+            WHEN c.dominio = 'PRIVADO' THEN  
+            ---- Privada ----
+            (SELECT cat.nombrecategoria
+             FROM contenido c, categoria cat
+             WHERE c.dominio = 'PRIVADO'
+                AND c.codcategoria = cat.codcategoria
+             GROUP BY c.codcategoria, cat.nombrecategoria
+             HAVING COUNT(*) = 
+                (SELECT MAX(count(*))
+                 FROM contenido c
+                 WHERE c.dominio = 'PRIVADO'
+                 GROUP BY c.codcategoria)
+                 FETCH FIRST 1 ROWS ONLY)
+            END as NombreCategoria
+FROM contenido c, usuario u, categoria cat
+WHERE c.emailusuario = u.email
+    AND c.codcategoria = cat.codcategoria
+GROUP BY u.nombre, c.dominio;
