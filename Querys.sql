@@ -161,11 +161,11 @@ SELECT c.dominio as Dominio, u.nombre as NombreUsuario,
         -- totalDelUsuario / totalDelasVisualizacionesPorDominio *100
         CASE
             WHEN c.dominio = 'PUBLICO' THEN
-            ROUND(
-                count(*)/(SELECT count(*) from contenido WHERE dominio = 'PUBLICO') *100)
+            CONCAT(TO_CHAR(ROUND(
+                count(*)/(SELECT count(*) from contenido WHERE dominio = 'PUBLICO') *100)), '%')
             WHEN c.dominio = 'PRIVADO' THEN 
-            ROUND(
-                count(*)/(SELECT count(*) from contenido WHERE dominio = 'PRIVADO') *100)
+             CONCAT(TO_CHAR(ROUND(
+                count(*)/(SELECT count(*) from contenido WHERE dominio = 'PRIVADO') *100)), '%')
         END as PrcEmisiones,
         /* Categorias Publica | Privada
            Pueden haber categorias empatadas en ese caso traemos la primera
