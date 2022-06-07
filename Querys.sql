@@ -212,7 +212,7 @@ SELECT c.dominio AS Dominio,
                            FROM   contenido c
                            WHERE  c.dominio = 'PUBLICO'
                            GROUP  BY c.codcategoria)
-        FETCH first 1 ROWS only)
+                           FETCH first 1 ROWS only)
          WHEN c.dominio = 'PRIVADO' THEN
        ---- Privada ----
        (SELECT cat.nombrecategoria
@@ -226,8 +226,8 @@ SELECT c.dominio AS Dominio,
                            FROM   contenido c
                            WHERE  c.dominio = 'PRIVADO'
                            GROUP  BY c.codcategoria)
-        FETCH first 1 ROWS only)
-       END       AS NombreCategoria
+                           FETCH first 1 ROWS only)
+       END AS NombreCategoria
 FROM   contenido c,
        usuario u,
        categoria cat
