@@ -173,27 +173,33 @@ WHERE  u.email IN (SELECT DISTINCT v.emailusuario
 ------------------------------------------------------------------------------*/
 -- Traer nombre de categoria
 -- Lista con los videos con mas visualizaciones
-SELECT cat.nombrecategoria as NombreCategoria
-FROM visualizacion v, contenido c, categoria cat
-WHERE v.codcontenido = c.codcontenido
-    AND cat.codcategoria = c.codcategoria
-    -- Agregar el filtrado last 15
-    AND c.dominio = 'PUBLICO'
-    -- Filtrar la categoria que tiene menos emisiones
-    AND c.codcategoria IN (SELECT cat.codcategoria
-FROM contenido c, categoria cat
-WHERE c.codcategoria = cat.codcategoria
--- Agregar el filtrado last 15
-    AND c.dominio = 'PUBLICO'
-GROUP BY cat.nombrecategoria, cat.codcategoria
-HAVING count() = (SELECT MAX(count())
- FROM contenido
- -- Agregar el filtrado last 15
- WHERE dominio = 'PUBLICO'
- GROUP BY codcategoria))
-GROUP BY c.codcontenido, c.codcategoria, cat.nombrecategoria
-ORDER BY count(*) DESC
-FETCH FIRST 1 ROWS ONLY
+SELECT cat.nombrecategoria AS NombreCategoria
+FROM   visualizacion v,
+       contenido c,
+       categoria cat
+WHERE  v.codcontenido = c.codcontenido
+       AND cat.codcategoria = c.codcategoria
+       -- Agregar el filtrado last 15
+       AND c.dominio = 'PUBLICO'
+       -- Filtrar la categoria que tiene menos emisiones
+       AND c.codcategoria IN (SELECT cat.codcategoria
+                              FROM   contenido c,
+                                     categoria cat
+                              WHERE  c.codcategoria = cat.codcategoria
+                                     -- Agregar el filtrado last 15
+                                     AND c.dominio = 'PUBLICO'
+                              GROUP  BY cat.nombrecategoria,
+                                        cat.codcategoria
+                              HAVING COUNT() = (SELECT Max(COUNT())
+                                                FROM   contenido
+                                                -- Agregar el filtrado last 15
+                                                WHERE  dominio = 'PUBLICO'
+                                                GROUP  BY codcategoria))
+GROUP  BY c.codcontenido,
+          c.codcategoria,
+          cat.nombrecategoria
+ORDER  BY COUNT(*) desc
+FETCH first 1 ROWS only;
 /*------------------------------------------------------------------------------
  EJ10: Obtener para cada dominio (Público y Privado): los usuarios que han 
  emitido contenido con dicho dominio y la cantidad total de emisiones por 
