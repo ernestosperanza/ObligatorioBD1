@@ -64,17 +64,16 @@ WHERE  c.dominio = 'PRIVADO'
 SELECT DISTINCT c.titulo,
                 c.emailusuario,
                 u.nickname
-FROM   usuario u
-       inner join contenido c
-               ON u.email = c.emailusuario
-       inner join visualizacion v
-               ON v.codcontenido = c.codcontenido
-WHERE  c.codcategoria = '2'
-       AND c.dominio = 'PUBLICO'
-       AND c.fechaemision = (SELECT Min(c.fechaemision)
-                             FROM   contenido c
-                             WHERE  c.codcategoria = '2'
-                                    AND c.dominio = 'PUBLICO');
+FROM    usuario u, 
+        contenido c, 
+        visualizacion v
+WHERE   u.email = c.emailusuario 
+        AND v.codcontenido = c.codcontenido AND  c.codcategoria = '2'
+        AND c.dominio = 'PUBLICO'
+        AND c.fechaemision = (SELECT Min(c.fechaemision)
+                              FROM   contenido c
+                              WHERE  c.codcategoria = '2'
+                                   AND c.dominio = 'PUBLICO');
 /*------------------------------------------------------------------------------
  EJ4: Mostrar los nicknames de los usuarios que hayan recibido más de una 
  donación cuyo estado sea pendiente y que a su vez hayan donado a más de un 
