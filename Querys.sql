@@ -2,7 +2,7 @@
  EJ1: Obtener el email y nickname de aquellos usuarios que emitieron contenido 
  de las categorías Música o Fortnite, pero no ambas. Considerar solo 
  contenidos de mayo de 2022.
- 
+ -------------------------------------------------------------------------------
  Justificación: Primero creamos dos grupos donde seleccionamos aquellos usuarios
  que tengan contenido en Fortnite o Musica. Luego los unimos y restamos aquellos
  que tengan ambos grupos, nos quedamos con los restantes, si cumplen con los 
@@ -55,7 +55,7 @@ minus
  EJ2: Obtener el título de los contenidos de la categoría "Música" que tuvieron 
  visualizaciones de otros usuarios distintos al creador, en el mes de mayo 
  de 2022, y cuyo dominio sea Privado.
- 
+ -------------------------------------------------------------------------------
  Justificación: Recopilamos aquellos contenidos que cumplen ser de la categoria 
  'Musica' verificando que tengan al menos una visualizacion de alguien diferente
  al usuario original independientemente de que este lo haya visto y ademas 
@@ -75,7 +75,7 @@ WHERE  c.dominio = 'PRIVADO'
  uno mostrar su título y el email y nickname del usuario creador.             
  Considerar solo contenidos de dominio público y que hayan sido visualizados  
  al menos una vez.  
- 
+ -------------------------------------------------------------------------------
  Justificación: Primero hicimos una sub query la cual toma la menor fecha de 
  aquellos contenidos los cuales cumplen ser de la categoria LoL y además son 
  públicos. Luego tomamos esa fecha, el dominio y el usuario, para devolver 
@@ -99,7 +99,7 @@ WHERE  u.email = c.emailusuario
  EJ4: Mostrar los nicknames de los usuarios que hayan recibido más de una 
  donación cuyo estado sea pendiente y que a su vez hayan donado a más de un 
  usuario.Considerar las donaciones posteriores al 10/10/2021.
- 
+ -------------------------------------------------------------------------------
  Justificación: Hicimos una sub-query que nos permite identificar la cantidad 
  de donaciones que tiene un email de destino, y a su vez la comparamos con la 
  informacion filtrada originalmente para saber si existe un email que cumpla 
@@ -119,7 +119,7 @@ WHERE  d.emailorigen = u.email
  EJ5: Obtener el email y nickname de los usuarios mayores de 18 años que hayan 
  emitido contenido de todas las categorías. Considerar únicamente aquellos 
  contenidos cuyo dominio sea público.
- 
+ -------------------------------------------------------------------------------
  Justificación: Primero utilizamos una funcion innata del sql para calcular la
  edad que seria el primer filtro de la consulta en cuestion, luego chequeamos 
  que el email de dicho usuario este dentro de la tabla contenido y cumpla con 
@@ -147,7 +147,7 @@ WHERE  Trunc(sysdate - fechanac) > '6570'
  aprobadas mostrar la fecha y para las pendientes mostrar el texto 
  “Transacción programada”. Considerar aquellos usuarios cuyo nickname tenga por 
  lo menos 5 letras de longitud.
- 
+ -------------------------------------------------------------------------------
  Justificación: Primero hicimos una sub query que toma aquellos nicks de 
  usuarios cuyo largo es mayor o igual a 5. Luego hicimos una union entre usuario
  y donacion, donde nos quedamos con una tabla de donaciones, la cual proyecta
@@ -171,7 +171,7 @@ WHERE  u.email = d.emailorigen
  EJ7: Obtener para cada usuario la cantidad de contenidos de dominio público 
  y privado que emitió. Considerar solamente los contenidos emitidos en la 
  primera quincena de marzo de 2022.
- 
+ -------------------------------------------------------------------------------
  Justificación: Desplegamos una tabla, la cual muestra aquellos emails de 
  usuarios con sus respectivas emisiones de contenido privado y publico 
  desplegando estas como listas contables calculadas usando el case, siempre 
@@ -192,7 +192,7 @@ GROUP  BY c.emailusuario;
  EJ8: Obtener el nombre y fecha de nacimiento de los usuarios que visualizaron 
  la mayor cantidad de contenido en abril de 2022 y que nunca hayan 
  recibido donaciones.   
- 
+ --------------------------------------------------------------------------------
  Justificación: Primero hicimos una subquery, la cual toma todos los emails de 
  las donaciones, y dada la tabla de visualizaciones tomamos el maximo de los 
  emails que no estan en aquella mencionada primeramente.
@@ -220,7 +220,7 @@ WHERE  u.email IN (SELECT emailusuario
  cantidad de contenido y que alguno de esos contenidos haya tenido la mayor 
  cantidad de visualizaciones. Considerar solamente contenidos públicos 
  y que se hayan subido hace 15 días.
- 
+ -------------------------------------------------------------------------------
  Justificación: Primero hacemos una subquery para obtener el mínimo de 
  contenidos emitidos por categoría. Luego filtramos las categorías que tienen 
  ese mínimo. Por último unimos la tabla de categoría con contenido y 
@@ -262,7 +262,7 @@ FETCH first 1 ROWS only;
  cantidades sobre el total de contenidos emitidos para cada dominio. 
  Además, obtener el nombre de la categoría que obtuvo la mayor cantidad de 
  visualizaciones para cada dominio de contenido.
- 
+ -------------------------------------------------------------------------------
  Justificación: Primero hicimos una union entre contenido y categoria, 
  de donde el contenido fuese privado/publico y categoria, contenido tuviesen el 
  mismo codigo. De ahi pudimos sacar el maximo de estas para desplegarlo como 
