@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------   
-                            CASOS DE PRUEBA 5
+                            CASOS DE PRUEBA 8
         Condiciones: visualizar mayor cant contenido & abril 2022 & no recibieron donaciones
 ----------------------------USUARIOS & DONACIONES --------------------------------------------------*/
 INSERT INTO USUARIO values ('manu@gmail.com', 'manu', 'manu02m' ,'04/05/2002');
