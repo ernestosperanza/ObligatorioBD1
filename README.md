@@ -12,7 +12,7 @@ Ernesto Speranza - 198426
 [Consultas SQL 1 - 10](Querys.sql)
 
 ## Casos de Prueba
-[Casos de prueba 3](https://github.com/ernestosperanza/ObligatorioBD1/blob/main/CasoDePrueba3.sql)<br>
-[Casos de prueba 5](https://github.com/ernestosperanza/ObligatorioBD1/blob/main/CasoDePrueba5.sql)<br>
-[Casos de prueba 8](https://github.com/ernestosperanza/ObligatorioBD1/blob/main/CasoDePrueba8.sql)<br>
-[Casos de prueba 10](https://github.com/ernestosperanza/ObligatorioBD1/blob/main/CasoDePrueba10.sql)<br>
+[Casos de prueba 3](CasoDePrueba3.sql)<br>
+[Casos de prueba 5](CasoDePrueba5.sql)<br>
+[Casos de prueba 8](CasoDePrueba8.sql)<br>
+[Casos de prueba 10](CasoDePrueba10.sql)<br>
