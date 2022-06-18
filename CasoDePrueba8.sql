@@ -1,7 +1,11 @@
 /*------------------------------------------------------------------------------   
                             CASOS DE PRUEBA 8
-        Condiciones: visualizar mayor cant contenido & abril 2022 & no recibieron donaciones
-----------------------------USUARIOS & DONACIONES --------------------------------------------------*/
+        Condiciones: visualizar mayor cant contenido & abril 2022 & 
+        no recibieron donaciones
+
+        Comentario: Para los siguientes casos de prueba es necesario borrar
+        las tablas y hacer los insert especificos para cada caso.
+----------------------- USUARIOS & DONACIONES --------------------------------*/
 INSERT INTO USUARIO values ('manu@gmail.com', 'manu', 'manu02m' ,'04/05/2002');
 INSERT INTO USUARIO values ('facu@gmail.com', 'facu', 'facuf' ,'13/10/2002');
 INSERT INTO USUARIO values ('clara@gmail.com', 'clara', 'claracur' ,'10/07/2001');
@@ -9,6 +13,11 @@ INSERT INTO USUARIO values ('gonza@gmail.com', 'gonza', 'gonzaM' ,'8/07/2005');
 INSERT INTO USUARIO values ('fer@gmail.com','fer', 'fer12', '03/08/2000');
 INSERT INTO USUARIO values ('juan@gmail.com','juan', 'juan_j', '04/08/2000');
 INSERT INTO USUARIO values ('romi@gmail.com','romi', 'romx', '04/8/2000');
+-- Categorias
+INSERT INTO CATEGORIA VALUES ('1','Fortnite');
+INSERT INTO CATEGORIA VALUES ('2','LoL');
+INSERT INTO CATEGORIA VALUES ('3','Dota 2');
+INSERT INTO CATEGORIA VALUES ('4','Musica');
 
 -- Manu no recibio donaciones
 INSERT INTO DONACION values ('manu@gmail.com', 'fer@gmail.com', '05/06/22', '10/06/22', '100','APROBADA');
@@ -69,8 +78,3 @@ INSERT INTO DONACION values ('fer@gmail.com', 'manu@gmail.com', '05/06/22', '10/
 INSERT INTO VISUALIZACION values ('3','manu@gmail.com','01/05/2022');
 INSERT INTO VISUALIZACION values ('4','facu@gmail.com','01/04/2022');
 INSERT INTO VISUALIZACION values ('5','facu@gmail.com','01/04/2022');
-
-
-
-
-
