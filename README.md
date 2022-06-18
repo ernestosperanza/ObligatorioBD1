@@ -4,10 +4,10 @@ Ernesto Speranza - 198426 <br>
 Alejandro Ortiz - 236783 <br>
 
 ## Álgebra relacional 
-[Álgebra relacional 1 - 4]()
+[Álgebra relacional 1 - 4](algebraRelacional.docx)
 
 ## Cálculo relacional de tuplas
-[Cálculo relacional de tuplas 5]()
+[Cálculo relacional de tuplas 5](ejercicio5Tuplas.docx)
 
 ## Consultas SQL
 [Consultas SQL 1 - 10](Querys.sql)
