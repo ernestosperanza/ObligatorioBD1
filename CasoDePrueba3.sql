@@ -36,35 +36,15 @@ INSERT INTO CONTENIDO VALUES ('8','Video','30/8/2022','facu@gmail.com','4','PUBL
 INSERT INTO CONTENIDO VALUES ('23','Video LOL','30/09/2022','facu@gmail.com','4','PUBLICO');
 -- Visualizaciones
 INSERT INTO VISUALIZACION values ('4', 'gonza@gmail.com', '01/1/2021');
-INSERT INTO VISUALIZACION values ('4', 'clara@gmail.com', '01/1/2022');
-INSERT INTO VISUALIZACION values ('5', 'gonza@gmail.com', '29/8/2022');
+INSERT INTO VISUALIZACION values ('2', 'gonza@gmail.com', '02/8/2022');
 INSERT INTO VISUALIZACION values ('8', 'facu@gmail.com', '30/8/2022');
-INSERT INTO VISUALIZACION values ('9', 'clara@gmail.com', '29/8/2022');
-INSERT INTO VISUALIZACION values ('9', 'gonza@gmail.com', '15/5/2022');
-INSERT INTO VISUALIZACION values ('10', 'manu@gmail.com', '30/5/2022');
-INSERT INTO VISUALIZACION values ('11', 'gonza@gmail.com', '29/5/2022');
-INSERT INTO VISUALIZACION values ('11', 'clara@gmail.com', '06/5/2022');
-INSERT INTO VISUALIZACION values ('12', 'clara@gmail.com', '05/5/2022');
-INSERT INTO VISUALIZACION values ('12', 'manu@gmail.com', '10/5/2022');
-INSERT INTO VISUALIZACION values ('14', 'clara@gmail.com', '12/5/2022');
+INSERT INTO VISUALIZACION values ('4', 'clara@gmail.com', '01/1/2022');
 INSERT INTO VISUALIZACION values ('15', 'clara@gmail.com', '01/6/2022');
 INSERT INTO VISUALIZACION values ('16', 'clara@gmail.com', '05/6/2022');
-INSERT INTO VISUALIZACION values ('1', 'clara@gmail.com', '03/8/2022');
 INSERT INTO VISUALIZACION values ('4', 'clara@gmail.com', '03/8/2022');
-INSERT INTO VISUALIZACION values ('1', 'gonza@gmail.com', '01/9/2022');
-INSERT INTO VISUALIZACION values ('2', 'gonza@gmail.com', '02/8/2022');
-INSERT INTO VISUALIZACION values ('3', 'gonza@gmail.com', '03/8/2022');
-INSERT INTO VISUALIZACION values ('1', 'test@gmail.com', '03/8/2022');
 INSERT INTO VISUALIZACION values ('2', 'test@gmail.com', '03/8/2022');
-INSERT INTO VISUALIZACION values ('3', 'test@gmail.com', '03/8/2022');
 INSERT INTO VISUALIZACION values ('4', 'test@gmail.com', '03/8/2022');
-INSERT INTO VISUALIZACION values ('5', 'test@gmail.com', '03/8/2022');
-INSERT INTO VISUALIZACION values ('6', 'test@gmail.com', '06/8/2022');
-INSERT INTO VISUALIZACION values ('1', 'test2@gmail.com', '03/8/2022');
 INSERT INTO VISUALIZACION values ('2', 'test2@gmail.com', '04/8/2022');
-INSERT INTO VISUALIZACION values ('3', 'test2@gmail.com', '05/8/2022');
 INSERT INTO VISUALIZACION values ('19', 'test2@gmail.com', '05/8/2022');
 INSERT INTO VISUALIZACION values ('4', 'test2@gmail.com', '06/8/2022');
-INSERT INTO VISUALIZACION values ('5', 'test2@gmail.com', '07/8/2022');
-INSERT INTO VISUALIZACION values ('6', 'test2@gmail.com', '08/8/2022');
 --------------------------------------------------------------------------------
