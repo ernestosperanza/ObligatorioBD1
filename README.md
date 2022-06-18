@@ -1,6 +1,7 @@
 # ObligatorioBD1
 ## Integrantes
 Ernesto Speranza - 198426
+Alejandro Ortiz - 236783
 
 ## Álgebra relacional 
 [Álgebra relacional 1 - 4]()
