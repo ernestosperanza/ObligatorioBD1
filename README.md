@@ -1,7 +1,7 @@
 # ObligatorioBD1
 ## Integrantes
-Ernesto Speranza - 198426
-Alejandro Ortiz - 236783
+Ernesto Speranza - 198426 <br>
+Alejandro Ortiz - 236783 <br>
 
 ## Álgebra relacional 
 [Álgebra relacional 1 - 4]()
@@ -21,3 +21,5 @@ Alejandro Ortiz - 236783
 ![](/Screenshots/CasoDePrueba8.png)<br>
 ### [Casos de prueba 10](CasoDePrueba10.sql)<br>
 ![](/Screenshots/CasoDePrueba10.png)<br>
+### Sin Publico
+![](/Screenshots/CasoDePrueba10_SinPublico.png)<br>
