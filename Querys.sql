@@ -141,6 +141,20 @@ WHERE  Trunc(sysdate - fechanac) > '6570'
                               (SELECT Sum(Count(DISTINCT codcategoria))
                                FROM   contenido
                                GROUP  BY codcategoria));
+
+-- Forma con la doble negacion                     
+SELECT u.email,
+       u.nickname
+FROM   usuario u
+WHERE  ( sysdate - u.fechanac ) >= ( 18 * 365 )
+       AND NOT EXISTS (SELECT 1
+                       FROM   categoria c
+                       WHERE  NOT EXISTS (SELECT 1
+                                          FROM   contenido co
+                                          WHERE  u.email = co.emailusuario
+                                                 AND c.codcategoria =
+                                                     co.codcategoria
+                                                 AND co.dominio = 'PUBLICO'));
 /*------------------------------------------------------------------------------
  EJ6: Proveer una consulta que muestre los siguientes datos de las donaciones: 
  EmailOrigen,EmailDestino, Fecha y EstadoDonación. Para las donaciones 
