@@ -31,7 +31,7 @@ Filtro1<- σ((codcategoria=2) & (dominio = 'PUBLICO') & MINIMUN(fechaemision))(C
 
 ContenidoFiltrado <- π((emailusuario,Titulo)) Visualizacion|x|Filtro1 $1 = $4
 
-ContenidoVisualizado <- π((emailusuario,Titulo)) (Usuario|X|visualización $1=$8)
+ContenidoVisualizado <- π((emailusuario,Titulo)) (Usuario|X|visualización $1=$6)
 
 ResultadoPreliminar <- ContenidoFiltrado ∩ ContenidoVisualizado
 
