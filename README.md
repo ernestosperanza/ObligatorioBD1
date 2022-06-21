@@ -7,6 +7,7 @@ Manuel Millán - 243431 <br>
 ## Álgebra relacional 
 ```
 Ejercicio 1:
+-- Musica = codcategoria 4 y Fortnite = codcategoria 1
 Cfort <- σ (codcategoria=1 &(fechaEmision>'30/04/2022' & fechaEmision<'01/06/2022')) (CONTENIDO)
 
 Cm <- σ (codcategoria=4 &(fechaEmision>'30/04/2022' & fechaEmision<'01/06/2022')) (CONTENIDO)
