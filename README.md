@@ -39,15 +39,17 @@ ResultadoPreliminar <- ContenidoFiltrado ∩ ContenidoVisualizado
 Resultado <- π((emailusuario,Titulo,nickname))(ResultadoPreliminar * Usuario)
 ```
 ```
-Ejercicio 4 (TO FIX):
+Ejercicio 4:
 
-DF <- σ (fechacreacion>10/10/2021) (DONACION)
+DF <- σ (fechacreacion>10/10/2021^estadodonacion='PENDIENTE') (DONACION)
 
-Email <- π email σ (Donacion |X| Usuario emailorigen = email & estadodonacion='PENDIENTE')
+HanDonado <- π((email)) σ (Donacion |X| Usuario emailorigen = email)
 
-Donaron <- σ (Donación |X| Usuario emaildestino = email)
+masDonaciones<-π((emaildestino)) σ (emaildestino^count(emaildestino = emaildestino^emaildestino!=emailorigen (donacion |X| donacion)^DF)>1) (DONACION) 
 
-Resultado <- Email*Donaron*DF
+resultadoPreliminar <-π(nickname) σ (email=emaildestino(usuario |X| masDoncaciones))
+
+Resultado <- resultadoPreliminar*HanDonado
 ```
 ## Cálculo relacional de tuplas
 ```
