@@ -1,8 +1,4 @@
 # ObligatorioBD1
-## Integrantes
-Ernesto Speranza - 198426 <br>
-Alejandro Ortiz - 236783 <br>
-Manuel Millán - 243431 <br>
 
 ## Álgebra relacional 
 ```
